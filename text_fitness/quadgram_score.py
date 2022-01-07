@@ -65,6 +65,7 @@ def quadgram_score_v5(text: str) -> float:
     return score / len(text)
 
 
+# on Stanley's computer, v4 runs slightly faster than v3 and v5, all of which run much faster than v1 and v2
 quadgram_score = quadgram_score_v4
 
 
