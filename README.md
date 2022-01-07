@@ -6,8 +6,10 @@ Written in Python3 (and run with PyPy)
 ## TODOs
 * Write a "text fitness evaluator" function which evaluates the likelihood that a given string of text is English
 * Write a substitution cipher decoder (which can also server as a ROT13, Caesar, and Atbash decoder)
-* Investigate using AI to identify what cipher a ciphertext might be encrypted with
 * Compile a list of common classical ciphers (drawing from Wikipedia and the National Cipher Competition)
+* Write a word splitter which separates plaintext into words
+* Investigate using AI to identify what cipher a ciphertext might be encrypted with
+* Investigate using AI to evaluate text fitness
 
 
 ## Terminology
@@ -33,3 +35,17 @@ Simulated annealing may also be used in the future.
 Code should be written to prioritize speed when run under PyPy, though it should still be reasonably readable.
 In particular, decrypters must be optimized to run quickly, as they are often called thousands of times in order to crack a cipher.
 Different versions of decrypters should be tested and timed to determine which is most performant.
+
+
+# Resources
+## Text Fitness
+http://practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/
+<br>
+https://medium.com/analytics-vidhya/how-to-distinguish-between-gibberish-and-valid-english-text-4975078c5688
+<br>
+https://planetcalc.com/7959/
+
+## Word Splitting
+http://practicalcryptography.com/cryptanalysis/text-characterisation/word-statistics-fitness-measure/
+
+
