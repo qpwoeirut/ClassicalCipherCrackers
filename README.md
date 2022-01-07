@@ -1,5 +1,5 @@
 # ClassicalCipherCracker
-A (hopefully) considerably copious collection of crackers for classical ciphers
+A (hopefully) considerably copious collection of classical cipher crackers
 
 Written in Python3 (and run with PyPy)
 
