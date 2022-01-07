@@ -9,7 +9,6 @@ Written in Python3 (and run with PyPy)
 * Compile a list of common classical ciphers (drawing from Wikipedia and the National Cipher Competition)
 * Write a word splitter which separates plaintext into words
 * Investigate using AI to identify what cipher a ciphertext might be encrypted with
-* Investigate using AI to evaluate text fitness
 
 
 ## Terminology
