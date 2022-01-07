@@ -44,6 +44,8 @@ http://practicalcryptography.com/cryptanalysis/text-characterisation/quadgrams/
 https://medium.com/analytics-vidhya/how-to-distinguish-between-gibberish-and-valid-english-text-4975078c5688
 <br>
 https://planetcalc.com/7959/
+<br>
+https://gitlab.com/guballa/SubstitutionBreaker/-/blob/development/subbreaker/breaker.py
 
 ## Word Splitting
 http://practicalcryptography.com/cryptanalysis/text-characterisation/word-statistics-fitness-measure/
