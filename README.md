@@ -35,6 +35,7 @@ Simulated annealing may also be used in the future.
 Code should be written to prioritize speed when run under PyPy, though it should still be reasonably readable.
 In particular, decrypters must be optimized to run quickly, as they are often called thousands of times in order to crack a cipher.
 Different versions of decrypters should be tested and timed to determine which is most performant.
+The same applies to the text fitness evaluator.
 
 
 # Resources
