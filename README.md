@@ -29,3 +29,7 @@ If the keyspace is small, then every key will be tested.
 If brute force isn't feasible, a hill-climbing algorithm will be used, where random changes to the key are either kept or dropped if they create a better text evaluation.
 The goal of the algorithm is to reach a "hill", where the plaintext is as likely to be the real message as possible.
 Simulated annealing may also be used in the future.
+
+Code should be written to prioritize speed when run under PyPy, though it should still be reasonably readable.
+In particular, decrypters must be optimized to run quickly, as they are often called thousands of times in order to crack a cipher.
+Different versions of decrypters should be tested and timed to determine which is most performant.
