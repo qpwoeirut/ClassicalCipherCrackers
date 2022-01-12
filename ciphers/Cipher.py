@@ -3,8 +3,7 @@ import string
 
 
 class Cipher(metaclass=abc.ABCMeta):
-    def __init__(self, key, alphabet=string.ascii_lowercase):
-        self.key = key
+    def __init__(self, alphabet=string.ascii_lowercase):
         self.alphabet = alphabet
 
     def filter_invalid(self, text: str) -> str:

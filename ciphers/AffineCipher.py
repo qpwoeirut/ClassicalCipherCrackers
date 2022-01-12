@@ -6,9 +6,12 @@ from Cipher import Cipher
 
 class AffineCipher(Cipher):
     def __init__(self, a: int, b: int, alphabet=string.ascii_lowercase):
-        super().__init__((a, b), alphabet=alphabet)
+        super().__init__(alphabet=alphabet)
         if gcd(a, len(self.alphabet)) != 1:
             raise ValueError(f'"a" ({a}) must be coprime with the alphabet size ({len(self.alphabet)})')
+
+        self.a = a
+        self.b = b
 
         # precalculate each character's encrypted and decrypted form
         self.transformed_alphabet = ''.join([self.encrypt_char(c) for c in self.alphabet])
@@ -17,7 +20,7 @@ class AffineCipher(Cipher):
 
     def encrypt_char(self, c: str) -> str:
         # enc = ax + b
-        return self.alphabet[(self.key[0] * self.alphabet.index(c) + self.key[1]) % len(self.alphabet)]
+        return self.alphabet[(self.a * self.alphabet.index(c) + self.b) % len(self.alphabet)]
 
     def encrypt(self, plaintext: str) -> str:
         return plaintext.translate(self.encryption_table)
