@@ -1,9 +1,8 @@
 import abc
-import string
 
 
 class Cipher(metaclass=abc.ABCMeta):
-    def __init__(self, alphabet=string.ascii_lowercase):
+    def __init__(self, alphabet: str):
         self.alphabet = alphabet
 
     def filter_invalid(self, text: str) -> str:
