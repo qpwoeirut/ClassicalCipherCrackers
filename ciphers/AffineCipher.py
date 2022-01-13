@@ -1,32 +1,20 @@
 import string
 from math import gcd
 
-from Cipher import Cipher
+from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
-class AffineCipher(Cipher):
+class AffineCipher(SubstitutionCipher):
     def __init__(self, a: int, b: int, alphabet=string.ascii_lowercase):
-        super().__init__(alphabet=alphabet)
         if gcd(a, len(self.alphabet)) != 1:
-            raise ValueError(f'"a" ({a}) must be coprime with the alphabet size ({len(self.alphabet)})')
-
-        self.a = a
-        self.b = b
+            raise ValueError(f'"a" ({a}) must be coprime with the alphabet size ({len(alphabet)})')
 
         # precalculate each character's encrypted and decrypted form
-        self.transformed_alphabet = ''.join([self.encrypt_char(c) for c in self.alphabet])
-        self.encryption_table = str.maketrans(self.alphabet, self.transformed_alphabet)
-        self.decryption_table = str.maketrans(self.transformed_alphabet, self.alphabet)
-
-    def encrypt_char(self, c: str) -> str:
-        # enc = ax + b
-        return self.alphabet[(self.a * self.alphabet.index(c) + self.b) % len(self.alphabet)]
-
-    def encrypt(self, plaintext: str) -> str:
-        return plaintext.translate(self.encryption_table)
-
-    def decrypt(self, ciphertext: str) -> str:
-        return ciphertext.translate(self.decryption_table)
+        transformed_alphabet = ''.join([
+            self.alphabet[(a * self.alphabet.index(c) + b) % len(self.alphabet)]  # ax + b
+            for c in self.alphabet
+        ])
+        super().__init__(transformed_alphabet=transformed_alphabet, alphabet=alphabet)
 
 
 def test():
