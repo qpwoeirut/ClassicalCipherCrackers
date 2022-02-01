@@ -4,7 +4,7 @@ from ciphers.Cipher import Cipher
 
 
 class SubstitutionCipher(Cipher):
-    def __init__(self, transformed_alphabet: str, alphabet: str = string.ascii_lowercase):
+    def __init__(self, transformed_alphabet: str, alphabet: str = string.ascii_uppercase):
         super().__init__(alphabet=alphabet)
 
         self.transformed_alphabet = transformed_alphabet

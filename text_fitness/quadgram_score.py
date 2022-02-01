@@ -1,7 +1,7 @@
 from timeit import timeit
 from text_fitness.log_probabilities.generate_log_probabilities import ngram_to_number
 
-with open("text_fitness/log_probabilities/english_quadgrams.txt") as file:
+with open("/Users/qpwoeirut/OtherProgramming/ClassicalCipherCrackers/text_fitness/log_probabilities/english_quadgrams.txt") as file:
     quadgram_prob = [float(x) for x in file.read().split()]
 assert len(quadgram_prob) == 26 ** 4, \
     f"There should be 26^4 quadgrams but instead there are {len(quadgram_prob)} quadgrams."

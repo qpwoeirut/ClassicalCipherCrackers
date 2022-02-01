@@ -4,8 +4,8 @@ from ciphers.Cipher import Cipher
 
 
 class Cracker(metaclass=abc.ABCMeta):
-    def __init__(self, cipher: Cipher):
-        self.cipher = cipher
+    def __init__(self, alphabet: str):
+        self.alphabet = alphabet
 
     @abc.abstractmethod
     def crack(self, ciphertext: str) -> tuple:
