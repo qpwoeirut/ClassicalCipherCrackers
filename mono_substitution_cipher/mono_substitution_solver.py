@@ -9,7 +9,7 @@
 #   - For each of the matching words found in the previous step, create a partial key using those
 #     letters. The format of a partial key is a hashmap with keys a-z and values as lists of the
 #     possible letter(s) that map to the key (ex: "abc" with matching word "cat" -> {"a": ["c"],
-#     "b": ["b"], "c": ["t"]})
+#     "b": ["a"], "c": ["t"]})
 #   - Create partial key hashmaps for each of the matching words for each of the encrypted words
 #   - Merge all of the possible keys using an algorithm that considers the following steps:
 #       1) Take the first two maps of the list of maps passed in
@@ -19,19 +19,19 @@
 #              If so, merge the two together (ex: [] + [a, z, t] = [a, z, t])
 #           b) If both maps have possible letters in that position, find all the letters that are in
 #              common between the two maps and add those, discard any letters that only appear in
-#			   one of the maps and not both
-#		3) Use the merged map just created at one of the two maps in the next step. Continue the
-#		   algorithm until all of the given maps have been merged into one
-#	- Clean the merged mapping by finding all of the known letters (where the list value in the merged
-#	  map only has 1 possible letter). For the rest of thel list values, remove all of those known
-#	  letters, preventing them from being using in that position
-#		- NOTE: Because this algorithm may remove such that only 1 letter remains in another position,
-#		  it must be run multiple times (ex: {a: [z], b: [z, c], c: [c, d, f]}. The first pass would
-#		  result in {a: [z], b: [c], c: [c, d, f]}, but now b=c is also known so it must be run
-#		  again to finally get {a: [z], b: [c], c: [d, f]})
-#	- Finally create a key from the cleaned and merged mapping. If a list value only has 1 letter, then
-#	  insert it into the key at the correct position. Otherwise, use an UNKNOWN_CHAR since there is
-#	  no definite answer for that position
+#              one of the maps and not both
+#       3) Use the merged map just created at one of the two maps in the next step. Continue the
+#          algorithm until all of the given maps have been merged into one
+#   - Clean the merged mapping by finding all of the known letters (where the list value in the merged
+#     map only has 1 possible letter). For the rest of thel list values, remove all of those known
+#     letters, preventing them from being using in that position
+#       - NOTE: Because this algorithm may remove such that only 1 letter remains in another position,
+#         it must be run multiple times (ex: {a: [z], b: [z, c], c: [c, d, f]}. The first pass would
+#         result in {a: [z], b: [c], c: [c, d, f]}, but now b=c is also known so it must be run
+#         again to finally get {a: [z], b: [c], c: [d, f]})
+#   - Finally create a key from the cleaned and merged mapping. If a list value only has 1 letter, then
+#     insert it into the key at the correct position. Otherwise, use an UNKNOWN_CHAR since there is
+#     no definite answer for that position
 # end: APPROACH
 # ====================================================================================================
 
