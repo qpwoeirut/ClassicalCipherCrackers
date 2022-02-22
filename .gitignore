@@ -1,4 +1,8 @@
-/.idea
+# Jonathan ignores
+.idea
+.DS_Store
+*~
+mono_substitution_cipher/solver_attempt_*.py
 
 
 # Byte-compiled / optimized / DLL files
