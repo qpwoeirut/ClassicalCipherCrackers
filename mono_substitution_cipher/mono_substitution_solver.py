@@ -1,4 +1,4 @@
-# ====================================================================================================
+# +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 # Mono-alphabetic Substitution Cipher Solver Attempt 7
 # --------------------------------------------------
 # APPROACH
@@ -33,7 +33,23 @@
 #     insert it into the key at the correct position. Otherwise, use an UNKNOWN_CHAR since there is
 #     no definite answer for that position
 # end: APPROACH
-# ====================================================================================================
+# +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+# +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+# TO-DO LIST
+# --------------------------------------------------
+# 1) Improve speed. While (depending on the length of the input text) this is not super slow, it
+#    could probably be faster and the code was written primarily with the intention to just get
+#    something that worked
+# 2) Create/implement some algorithm that predicts the likely position of spaces in a cipher text
+#    without any. Removing the spaces from the ciphertext basically destroys any hopes of decrypting
+#    it with this method
+# 3) Allow for more "wiggle room". Expanding on the point about spaces above, this program relies on
+#    a lot of things going well. Some of these assumptions include: perfect spelling, spaces available
+#    (and they aren't encoded to something else), a long ciphertext (>100 words ideally), written in
+#    English letters, etc
+# +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
 
 
 import sys
