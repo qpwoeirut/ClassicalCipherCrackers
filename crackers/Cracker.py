@@ -1,7 +1,5 @@
 import abc
 
-from ciphers.Cipher import Cipher
-
 
 class Cracker(metaclass=abc.ABCMeta):
     def __init__(self, alphabet: str):
