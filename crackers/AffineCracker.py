@@ -16,7 +16,7 @@ class AffineCracker(Cracker):
             if gcd(a, len(self.alphabet)) > 1:
                 continue
             for b in range(len(self.alphabet)):
-                plaintext = AffineCipher(a, b, self.alphabet).decrypt(ciphertext)
+                plaintext = AffineCipher((a, b), self.alphabet).decrypt(ciphertext)
                 solutions.append((quadgram_score(plaintext), (a, b), plaintext))
         solutions.sort(reverse=True)
         return solutions[0]
@@ -24,4 +24,4 @@ class AffineCracker(Cracker):
 
 if __name__ == '__main__':
     print(AffineCracker().crack("wellhellotheremyfriend!".upper()))
-    print(AffineCracker().crack(AffineCipher(11, 8).encrypt("hopefullythisworks".upper())))
+    print(AffineCracker().crack(AffineCipher((11, 8)).encrypt("hopefullythisworks".upper())))

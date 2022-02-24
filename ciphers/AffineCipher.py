@@ -5,7 +5,8 @@ from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
 class AffineCipher(SubstitutionCipher):
-    def __init__(self, a: int, b: int, alphabet: str = string.ascii_uppercase):
+    def __init__(self, key: tuple, alphabet: str = string.ascii_uppercase):
+        a, b = key
         if gcd(a, len(alphabet)) != 1:
             raise ValueError(f'"a" ({a}) must be coprime with the alphabet size ({len(alphabet)})')
 
@@ -19,7 +20,7 @@ class AffineCipher(SubstitutionCipher):
 
 def test():
     # example from Wikipedia
-    cipher = AffineCipher(5, 8)
+    cipher = AffineCipher((5, 8))
     assert cipher.encrypt("AFFINECIPHER".lower()) == "IHHWVCSWFRCP".lower()
     assert cipher.decrypt("IHHWVCSWFRCP".lower()) == "AFFINECIPHER".lower()
 
