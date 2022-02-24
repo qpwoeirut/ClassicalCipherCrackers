@@ -5,7 +5,7 @@ Written in Python3 (and run with PyPy)
 
 ## TODOs
 * Write a "text fitness evaluator" function which evaluates the likelihood that a given string of text is English
-* Write a substitution cipher decoder (which can also server as a ROT13, Caesar, and Atbash decoder)
+* Write a substitution cipher decoder (which can also serve as a ROT13, Caesar, and Atbash decoder)
 * Compile a list of common classical ciphers (drawing from Wikipedia and the National Cipher Competition)
 * Write a word splitter which separates plaintext into words
 * Investigate using AI to identify what cipher a ciphertext might be encrypted with
