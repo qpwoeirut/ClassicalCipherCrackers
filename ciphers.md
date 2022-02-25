@@ -6,10 +6,9 @@
 * Monoalphabetic Substitution?
 
 ## Has cipher implementation
-None
+* Vigenere
 
 ## TODO
-* Vigenere
 * Autokey
 * Beaufort
 * Hill
