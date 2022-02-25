@@ -1,5 +1,6 @@
 import abc
 import string
+from typing import Type
 
 from ciphers.Cipher import Cipher
 from crackers.Cracker import Cracker
@@ -7,7 +8,7 @@ from text_fitness.quadgram_score import quadgram_score
 
 
 class BruteCracker(Cracker):
-    def __init__(self, cipher: Cipher.__class__, alphabet=string.ascii_uppercase):
+    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase):
         super().__init__(alphabet)
         self.cipher = cipher
 

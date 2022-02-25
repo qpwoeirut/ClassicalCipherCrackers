@@ -1,8 +1,10 @@
 import abc
+from typing import Union
 
 
 class Cipher(metaclass=abc.ABCMeta):
-    def __init__(self, alphabet: str):
+    # the key parameter is unused, but having it makes each of the subclasses have a matching __init__ signature
+    def __init__(self, key: Union[tuple, str, int], alphabet: str):
         self.alphabet = alphabet
 
     def filter_invalid(self, text: str) -> str:
