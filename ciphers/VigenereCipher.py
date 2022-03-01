@@ -6,7 +6,7 @@ from ciphers.Cipher import Cipher
 
 class VigenereCipher(Cipher):
     def __init__(self, key: str, alphabet: str = string.ascii_uppercase):
-        super().__init__(alphabet=alphabet)
+        super().__init__(key, alphabet=alphabet)
         self.key_ords =[alphabet.index(k) for k in key]
         self.indexes = {alphabet[i]: i for i in range(len(alphabet))}
 
