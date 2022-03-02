@@ -1,0 +1,104 @@
+RabbitSign logo
+Frequently Asked Questions
+Unlimited Free Usage
+Is RabbitSign really free for signing as many documents as I want?
+Yes! RabbitSign offers truly unlimited free e-signing, which means you can send and sign as many documents as you want, for free.
+Are document templates a free feature at RabbitSign?
+Yes! You can create and use as many templates as you want at no charge whatsoever.
+Are document template links a free feature at RabbitSign?
+Yes! Template links are a feature of templates, and both document templates and template links are free and unlimited.
+Why is RabbitSign offering unlimited free e-signing?
+When the COVID-19 pandemic made e-signing essential, we were disappointed that no existing e-signing providers responded with a generous free offering. So we decided to make one that is unlimited free.
+How is RabbitSign able to offer unlimited e-signing for free?
+We lowered the operating cost of e-signing to the floor by leveraging revolutionary AWS serverless computing architecture. It costs us less than $1 to process 1000 document signings. (In AWS speak, a 128-MB Lambda costs $0.0000000021 per millisecond.) Combined with some advertising revenue, RabbitSign is profitable while offering free e-signing.
+Will RabbitSign change its pricing in the future?
+We may create a paid tier for new users in the future. However, if you already have a RabbitSign account, whatever you are using for free today will remain free for you forever.
+How To Use
+What is e-signing?
+You can think of e-signing as the electronic version of signing a pen-and-paper contract. E-signatures are legally binding, and are also more convenient and environmentally friendly than paper-based signing.
+What is required to send documents for signing using RabbitSign?
+All you need is a RabbitSign account.
+Does each signer need an email?
+Yes. Each signer's identity is verified through their email.
+Does each signer need a RabbitSign account?
+No. Only the person sending documents for signing needs a RabbitSign account.
+Templates
+What is a document template?
+A document template is a reusable document with signatures, initials and other fields positioned and saved in it. Once you create a template, you can quickly send documents for signatures again and again without positioning the fields for each document. It is a great time saver for frequently used documents such as leases and contracts.
+What is a template link?
+If a document template does not have any fields to be filled out by the sender, RabbitSign automatically generates a link for it. The link can be posted on websites or in emails. Anyone can click on the link and sign the document. This is great for collecting NDAs, liability release forms for an event, or school permission slips.
+Feature Highlights
+What features are supported today?
+Please check out our Features Page for the feature list!
+What web browsers are supported?
+RabbitSign supports Chrome, Edge, Firefox, and Safari.
+What file formats are supported right now?
+We support PDF files for now. More file formats will be supported in the future. You can convert files in other formats into PDF for free using online services like CloudConvert or Zamzar.
+What languages are supported for text fields?
+RabbitSign supports the following languages in text fields.
+English
+French
+German
+Italian
+Dutch
+Spanish
+Portuguese
+Polish
+Czech
+Greek
+Russian
+Ukrainian
+Turkish
+Arabic
+Chinese
+Japanese
+Korean
+Vietnamese
+Thai
+Hindi
+Bengali
+Punjabi
+Tamil
+Urdu
+Is there a RabbitSign mobile app?
+There is not currently a RabbitSign mobile app, but you can still send and sign documents on your phone through the web browser.
+Proof of Existence
+What is blockchain-based proof of existence?
+By storing a hash (think of a fingerprint) of a document on a blockchain, it provides immutability proof that the document exists at a particular point in time and has not been tampered with. It adds confidence for every party signing the document. More technical explanations of the proof-of-existence concept can be found in this IEEE Xplore paper. While the proof is provided via RabbitSign's own API today, we plan to support independent third-parties to provide the same proof in the future.
+How do I check the proof of existence?
+When all parties sign, an email with all the signed documents and an audit trail is sent to everyone. In addition, the email contains a proof-of-existence ID. Clicking on it shows you the hashes of the audit trail and the signed documents saved on the blockchain along with a timestamp. These hash values should match the SHA256 hash of the documents attached in the email. You can easily compute the SHA256 hash of a file by uploading it to an online tool like this one.
+Data Privacy
+Why does RabbitSign automatically delete documents from the server after 60 days?
+Once a document is signed, every party receives a signed copy in their emails. If it remains unsigned after 60 days, RabbitSign considers it abandoned. To protect user privacy in either case, RabbitSign purges documents from the server after 60 days.
+Is the proof of existence also deleted after 60 days?
+No. The proof of existence hashes are stored permanently. It is safe to keep them because no one can derive the original files from them.
+Are templates also deleted after 60 days?
+No. Templates are stored permanently. Once you create a template, you can reuse it again and again.
+Does RabbitSign sell my data?
+No. RabbitSign does not sell your data to advertisers or any other third party.
+Ads
+When are ads displayed on RabbitSign?
+Ads are never displayed while you are sending or signing a document. You will only see ads after completing an action, like creating or signing a document.
+Does RabbitSign use my data for advertising?
+No. RabbitSign does not sell or share your data to advertisers.
+Troubleshooting
+What if I am not getting emails from RabbitSign?
+Please check your email inbox's spam folder. If you use Gmail, please also check the Social and Promotions tabs, if those are enabled. It will also help if you whitelist rabbitsign.com in your Gmail Settings or add admin@rabbitsign.com as a safe sender in Hotmail. Finally, you can also send an email to admin@rabbitsign.com because most email services automatically consider addresses you send emails to as "safe".
+What can I do if one of the signers didn't receive the signing notification email from RabbitSign?
+Please ask the signer to check their email inbox's spam folder. In addition, the document's creator can send a reminder on the RabbitSign dashboard after logging in.
+How can I sign a document if the button in the email doesn't work?
+At the bottom of the email, there should be a link that you can copy-paste into your browser to sign. You can also create a RabbitSign account with the same email address that received the email. Then to access and sign your document, you can check the RabbitSign Dashboard.
+Technology
+What technology stack does RabbitSign use?
+RabbitSign is 100% built on AWS serverless architecture. It scales both up and down with no limit. If nobody is using the service, we incur no computing cost. When there is a spike in traffic, our infrastructure automatically scales at every layer with ease.
+What programming language is RabbitSign created in?
+Both the frontend and backend are written in Kotlin, leveraging its multiplatform support. Language features like lambdas, DSL, coroutines and functional programming are heavily used.
+Activism Corporation
+I heard that RabbitSign is an Activism Corporation. What is an Activism Corporation?
+An Activism Corporation is a for-profit company whose primary objective is not maximizing shareholder value. The defining feature is that 50% of the profits and capital gains are automatically divested toward social good. Users, governments and business partners can treat it as a regular corporation. For more details, please check out the Activism Corporation FAQ.
+Contacting RabbitSign
+What if I have a question not answered in this FAQ?
+We'd love to hear from you! Please email contact@rabbitsign.com.
+© 2022 RabbitSign Inc.
+Made in Palo Alto, California
+Home FAQ Terms Privacy Policy

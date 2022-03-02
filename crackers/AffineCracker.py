@@ -1,3 +1,4 @@
+import random
 import string
 from math import gcd
 
@@ -8,6 +9,13 @@ from crackers.BruteCracker import BruteCracker
 class AffineCracker(BruteCracker):
     def __init__(self, alphabet=string.ascii_uppercase):
         super().__init__(AffineCipher, alphabet)
+
+    def generate_random_key(self) -> tuple:
+        a = random.randint(0, len(self.alphabet) - 1)
+        while gcd(a, len(self.alphabet)) > 1:
+            a = random.randint(0, len(self.alphabet) - 1)
+        b = random.randint(0, len(self.alphabet) - 1)
+        return a, b
 
     def generate_keys(self):
         for a in range(len(self.alphabet)):

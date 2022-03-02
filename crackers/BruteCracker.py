@@ -9,8 +9,7 @@ from text_fitness.quadgram_score import quadgram_score
 
 class BruteCracker(Cracker):
     def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase):
-        super().__init__(alphabet)
-        self.cipher = cipher
+        super().__init__(cipher, alphabet)
 
     @abc.abstractmethod
     def generate_keys(self):
