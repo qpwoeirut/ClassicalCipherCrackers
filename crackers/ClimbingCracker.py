@@ -8,9 +8,10 @@ from text_fitness.quadgram_score import quadgram_score
 
 
 class ClimbingCracker(Cracker):
-    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase, restart_threshold=1000):
+    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase, restart_threshold=100, iterations=5000):
         super().__init__(cipher, alphabet)
         self.restart_threshold = restart_threshold
+        self.iterations = iterations
 
     @abc.abstractmethod
     def generate_random_key(self):
@@ -22,8 +23,8 @@ class ClimbingCracker(Cracker):
 
     def crack(self, ciphertext: str) -> tuple:
         best_solution = (float('-inf'), None, None)
-        for i in range(10000):
-            if i % 1000 == 0:
+        for i in range(self.iterations):
+            if i % 100 == 0:
                 print(f"Starting iteration {i}")
 
             current_key = self.generate_random_key()
