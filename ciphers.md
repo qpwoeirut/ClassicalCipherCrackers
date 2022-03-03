@@ -2,16 +2,29 @@
 
 ## Has cracker implementation
 * Caesar (includes ROT13)
-* Affine
+* Affine (includes Atbash)
 * Monoalphabetic Substitution?
-
-## Has cipher implementation
 * Vigenere
 
-## TODO
+## TODO (from Wikipedia's Classical Ciphers list)
 * Autokey
 * Beaufort
 * Hill
 * Railfence
 * Columnar transposition
+* Double columnar transposition
 * Myszkowski
+* Playfair
+* ADFGVX
+* Bifid, Trifid
+* Nihilist
+* Tap code
+* VIC
+* Two square, four square
+* Chaocipher
+* Great cipher
+* Pigpen
+* Running key
+* Rail fence
+* Route?
+* Enigma?
