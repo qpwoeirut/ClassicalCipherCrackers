@@ -11,9 +11,7 @@ class SubstitutionCipher(Cipher):
         self.decryption_table = str.maketrans(transformed_alphabet, self.alphabet)
 
     def encrypt(self, plaintext: str) -> str:
-        plaintext = self.filter_invalid(plaintext)
         return plaintext.translate(self.encryption_table)
 
     def decrypt(self, ciphertext: str) -> str:
-        ciphertext = self.filter_invalid(ciphertext)
         return ciphertext.translate(self.decryption_table)

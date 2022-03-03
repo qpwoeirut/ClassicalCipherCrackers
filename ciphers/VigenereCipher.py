@@ -11,14 +11,12 @@ class VigenereCipher(Cipher):
         self.indexes = {alphabet[i]: i for i in range(len(alphabet))}
 
     def encrypt(self, plaintext: str) -> str:
-        plaintext = self.filter_invalid(plaintext)
         return ''.join([
             self.alphabet[(self.indexes[c] + k) % len(self.alphabet)]
             for k, c in zip(cycle(self.key_ords), plaintext)
         ])
 
     def decrypt(self, ciphertext: str) -> str:
-        ciphertext = self.filter_invalid(ciphertext)
         return ''.join([
             self.alphabet[(self.indexes[c] - k) % len(self.alphabet)]
             for k, c in zip(cycle(self.key_ords), ciphertext)
