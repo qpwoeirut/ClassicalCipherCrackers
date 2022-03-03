@@ -4,11 +4,10 @@ A (hopefully) considerably copious collection of classical cipher crackers
 Written in Python3 (and run with PyPy)
 
 ## TODOs
-* Write a "text fitness evaluator" function which evaluates the likelihood that a given string of text is English
-* Write a substitution cipher decoder (which can also serve as a ROT13, Caesar, and Atbash decoder)
 * Compile a list of common classical ciphers (drawing from Wikipedia and the National Cipher Competition)
 * Write a word splitter which separates plaintext into words
 * Investigate using AI to identify what cipher a ciphertext might be encrypted with
+* Investigate training a simple AI-like model which can evaluate the english-ness of text
 
 
 ## Terminology
@@ -29,6 +28,7 @@ As more keys get tested, the best key-plaintext pair will be continuously update
 If the keyspace is small, then every key will be tested.
 If brute force isn't feasible, a hill-climbing algorithm will be used, where random changes to the key are either kept or dropped if they create a better text evaluation.
 The goal of the algorithm is to reach a "hill", where the plaintext is as likely to be the real message as possible.
+To avoid running into local minima (which is a common problem with hill-climbing), random-restart hill climbing (also known as shotgun hill climbing) is used.
 Simulated annealing may also be used in the future.
 
 Code should be written to prioritize speed when run under PyPy, though it should still be reasonably readable.
