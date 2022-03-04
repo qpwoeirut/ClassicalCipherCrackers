@@ -1,6 +1,7 @@
 import random
 import time
 
+from crackers.AutokeyCracker import AutokeyCracker
 from crackers.Cracker import Cracker
 from crackers.VigenereCracker import VigenereCracker
 
@@ -49,7 +50,8 @@ class CrackerTester:
 def main():
     with open("rabbitsign_faq.txt") as f:
         text = f.read().strip()
-    CrackerTester(text, VigenereCracker(iterations=300)).run_test(8)
+    CrackerTester(text, AutokeyCracker(iterations=200)).run_test(5)
+    CrackerTester(text, VigenereCracker(iterations=300)).run_test(5)
 
 
 if __name__ == '__main__':
