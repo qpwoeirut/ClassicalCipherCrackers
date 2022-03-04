@@ -5,9 +5,9 @@
 * Affine (includes Atbash)
 * Monoalphabetic Substitution?
 * Vigenere
+* Autokey
 
 ## TODO (from Wikipedia's Classical Ciphers list)
-* Autokey
 * Beaufort
 * Hill
 * Railfence
