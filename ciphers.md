@@ -5,10 +5,10 @@
 * Affine (includes Atbash)
 * Monoalphabetic Substitution?
 * Vigenere
+* Beaufort
 * Autokey
 
 ## TODO (from Wikipedia's Classical Ciphers list)
-* Beaufort
 * Hill
 * Railfence
 * Columnar transposition
