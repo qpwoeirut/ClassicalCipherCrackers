@@ -2,10 +2,12 @@ import abc
 import string
 from typing import Union
 
+from sympy import ImmutableMatrix
+
 
 class Cipher(metaclass=abc.ABCMeta):
     # the key parameter is unused, but having it makes each of the subclasses have a matching __init__ signature
-    def __init__(self, key: Union[tuple, str, int], alphabet: str = string.ascii_uppercase):
+    def __init__(self, key: Union[ImmutableMatrix, str, int], alphabet: str = string.ascii_uppercase):
         self.key = key
         self.alphabet = alphabet
 
