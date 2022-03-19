@@ -8,16 +8,17 @@
 * Beaufort
 * Autokey
 * Hill
-
-## TODO (from Wikipedia's Classical Ciphers list)
 * Railfence
+
+## TODO (from Wikipedia's Classical Ciphers list and CryptoPrograms)
 * Columnar transposition
 * Double columnar transposition
 * Myszkowski
 * Playfair
 * ADFGVX
 * Bifid, Trifid
-* Nihilist
+* Nihilist Sub
+* Nihilist Trans
 * Tap code
 * VIC
 * Two square, four square
@@ -25,6 +26,28 @@
 * Great cipher
 * Pigpen
 * Running key
-* Rail fence
+* Amsco
+* Bacon
+* Bazeries
+* Cadenus
+* Checkerboard
+* Digrafid
+* Fractionated Morse
+* Grille
+* Gromark
+* Gronsfeld
+* Monome Dinome
+* Morbit
+* Periodic Gromark
+* Phillips
+* Pollux
+* Porta
+* Ragbaby
+* Redefence
+* Seriated Playfair
+* Slidefair
+* Straddling Checkerboard
+* Swagman
+* Syllabary
 * Route?
 * Enigma?
