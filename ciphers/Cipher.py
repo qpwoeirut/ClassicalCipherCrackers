@@ -21,7 +21,7 @@ class Cipher(metaclass=abc.ABCMeta):
     def encrypt(self, plaintext: str) -> str:
         """
         Encrypts plaintext using the implemented cipher
-        Assumes plaintext is valid (all chars are in self.alphabet)
+        Ignores any characters not in self.alphabet
         """
         raise NotImplementedError()
 
@@ -29,6 +29,6 @@ class Cipher(metaclass=abc.ABCMeta):
     def decrypt(self, ciphertext: str) -> str:
         """
         Decrypts ciphertext using the implemented cipher
-        Assumes ciphertext is valid (all chars are in self.alphabet)
+        Ignores any characters not in self.alphabet
         """
         raise NotImplementedError()

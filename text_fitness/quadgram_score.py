@@ -46,6 +46,8 @@ def quadgram_score_v3(text: str) -> float:
 def quadgram_score_v4(text: str) -> float:
     score = 0
     for i in range(3, len(text)):
+        if not (65 <= ord(text[i-3]) <= 90 and 65 <= ord(text[i-2]) <= 90 and 65 <= ord(text[i-1]) <= 90 and 65 <= ord(text[i]) <= 90):
+            continue
         score += quadgram_prob[
             ((ord(text[i-3]) * 26 + ord(text[i-2])) * 26 + ord(text[i-1])) * 26 + ord(text[i]) - 1188135
             # 1188135 = 1142440 + 43940 + 1690 + 65 = 65 * 26^3  +  65 * 26^2  +  65 * 26  +  65

@@ -12,13 +12,13 @@ class VigenereCipher(Cipher):
 
     def encrypt(self, plaintext: str) -> str:
         return ''.join([
-            self.alphabet[(self.indexes[c] + k) % len(self.alphabet)]
+            self.alphabet[(self.indexes[c] + k) % len(self.alphabet)] if c in self.alphabet else c
             for k, c in zip(cycle(self.key_ords), plaintext)
         ])
 
     def decrypt(self, ciphertext: str) -> str:
         return ''.join([
-            self.alphabet[(self.indexes[c] - k) % len(self.alphabet)]
+            self.alphabet[(self.indexes[c] - k) % len(self.alphabet)] if c in self.alphabet else c
             for k, c in zip(cycle(self.key_ords), ciphertext)
         ])
 

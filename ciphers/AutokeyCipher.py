@@ -11,7 +11,7 @@ class AutokeyCipher(Cipher):
 
     def encrypt(self, plaintext: str) -> str:
         return ''.join([
-            self.alphabet[(self.indexes[c] + self.indexes[k]) % len(self.alphabet)]
+            self.alphabet[(self.indexes[c] + self.indexes[k]) % len(self.alphabet)] if c in self.alphabet else c
             for k, c in zip(self.key + plaintext, plaintext)
         ])
 

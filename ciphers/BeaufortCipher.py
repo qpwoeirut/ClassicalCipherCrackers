@@ -15,6 +15,6 @@ class BeaufortCipher(Cipher):
 
     def decrypt(self, ciphertext: str) -> str:
         return ''.join([
-            self.alphabet[(k - self.indexes[c]) % len(self.alphabet)]
+            self.alphabet[(k - self.indexes[c]) % len(self.alphabet)] if c in self.alphabet else c
             for k, c in zip(cycle(self.key_ords), ciphertext)
         ])
