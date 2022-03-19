@@ -3,13 +3,13 @@
 ## Has cracker implementation
 * Caesar (includes ROT13)
 * Affine (includes Atbash)
-* Monoalphabetic Substitution?
+* Monoalphabetic Substitution
 * Vigenere
 * Beaufort
 * Autokey
+* Hill
 
 ## TODO (from Wikipedia's Classical Ciphers list)
-* Hill
 * Railfence
 * Columnar transposition
 * Double columnar transposition
