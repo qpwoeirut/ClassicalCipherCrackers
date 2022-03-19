@@ -3,7 +3,7 @@ import string
 from ciphers.Cipher import Cipher
 
 
-class SubstitutionCipher(Cipher):
+class MonoSubstitutionCipher(Cipher):
     def __init__(self, transformed_alphabet: str, alphabet: str = string.ascii_uppercase):
         super().__init__(transformed_alphabet, alphabet=alphabet)
 

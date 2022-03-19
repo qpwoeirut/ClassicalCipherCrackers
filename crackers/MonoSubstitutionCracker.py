@@ -3,11 +3,12 @@ import string
 from typing import Type
 
 from ciphers.Cipher import Cipher
+from ciphers.MonoSubstitutionCipher import MonoSubstitutionCipher
 from crackers.ClimbingCracker import ClimbingCracker
 
 
-class SubstitutionCracker(ClimbingCracker):
-    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase, restart_threshold=200, iterations=5000):
+class MonoSubstitutionCracker(ClimbingCracker):
+    def __init__(self, cipher: Type[Cipher] = MonoSubstitutionCipher, alphabet=string.ascii_uppercase, restart_threshold=200, iterations=5000):
         super().__init__(cipher, alphabet=alphabet, restart_threshold=restart_threshold, iterations=iterations)
 
     # TODO maybe make keys lists or tuples instead?

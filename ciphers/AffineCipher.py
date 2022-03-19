@@ -1,10 +1,10 @@
 import string
 from math import gcd
 
-from ciphers.SubstitutionCipher import SubstitutionCipher
+from ciphers.MonoSubstitutionCipher import MonoSubstitutionCipher
 
 
-class AffineCipher(SubstitutionCipher):
+class AffineCipher(MonoSubstitutionCipher):
     def __init__(self, key: tuple, alphabet: str = string.ascii_uppercase):
         a, b = key
         if gcd(a, len(alphabet)) != 1:
