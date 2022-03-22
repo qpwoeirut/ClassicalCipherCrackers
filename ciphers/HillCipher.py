@@ -3,7 +3,6 @@ import string
 from math import sqrt
 from sympy import Matrix, ImmutableMatrix
 
-from ciphers.Cipher import Cipher
 from ciphers.SubstitutionCipher import SubstitutionCipher
 
 

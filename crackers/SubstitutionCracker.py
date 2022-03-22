@@ -1,4 +1,5 @@
 import abc
+
 from crackers.Cracker import Cracker
 
 
