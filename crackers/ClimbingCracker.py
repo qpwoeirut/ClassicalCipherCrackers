@@ -1,14 +1,12 @@
 import abc
-from typing import Type
 
-from ciphers.Cipher import Cipher
 from crackers.Cracker import Cracker
 from text_fitness.quadgram_score import quadgram_score
 
 
 class ClimbingCracker(Cracker):
     def __init__(self, restart_threshold=100, iterations=5000):
-        super().__init__()
+        super(Cracker).__init__()
         self.restart_threshold = restart_threshold
         self.iterations = iterations
 
