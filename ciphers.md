@@ -9,9 +9,9 @@
 * Autokey
 * Hill
 * Railfence
+* Columnar transposition (both complete and incomplete)
 
 ## TODO (from Wikipedia's Classical Ciphers list and CryptoPrograms)
-* Columnar transposition
 * Double columnar transposition
 * Myszkowski
 * Playfair
