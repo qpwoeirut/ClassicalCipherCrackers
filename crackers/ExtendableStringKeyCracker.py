@@ -7,7 +7,7 @@ from crackers.SubstitutionCracker import SubstitutionCracker
 
 
 class ExtendableStringKeyCracker(ClimbingCracker, SubstitutionCracker, metaclass=abc.ABCMeta):
-    def __init__(self, alphabet: str, restart_threshold=200, iterations=5000, max_key_len=15):
+    def __init__(self, alphabet: str, restart_threshold: int, iterations: int, max_key_len: int):
         ClimbingCracker.__init__(self, restart_threshold=restart_threshold, iterations=iterations)
         SubstitutionCracker.__init__(self, alphabet=alphabet)
         self.max_key_len = max_key_len
