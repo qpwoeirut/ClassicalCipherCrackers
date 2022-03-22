@@ -21,7 +21,7 @@ class ClimbingCracker(Cracker):
     def crack(self, ciphertext: str) -> tuple:
         best_solution = (float('-inf'), None, None)
         for i in range(self.iterations):
-            if i % 100 == 0:
+            if i % 50 == 0:
                 print(f"Starting iteration {i}")
 
             current_key = self.generate_random_key()
