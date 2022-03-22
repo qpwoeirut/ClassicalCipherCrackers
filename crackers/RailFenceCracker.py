@@ -7,7 +7,7 @@ from crackers.BruteCracker import BruteCracker
 
 class RailFenceCracker(BruteCracker):
     def __init__(self, max_rails: int = 20):
-        super().__init__(RailFenceCipher)
+        super().__init__()
         self.max_rails = max_rails
 
     def decrypt(self, key, ciphertext: str) -> str:

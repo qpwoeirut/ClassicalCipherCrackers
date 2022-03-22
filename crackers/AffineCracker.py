@@ -9,7 +9,7 @@ from crackers.SubstitutionCracker import SubstitutionCracker
 
 class AffineCracker(BruteCracker, SubstitutionCracker):
     def __init__(self, alphabet=string.ascii_uppercase):
-        super().__init__(AffineCipher, alphabet)
+        super().__init__(alphabet)
 
     def decrypt(self, key, ciphertext: str) -> str:
         return AffineCipher(key).decrypt(ciphertext)

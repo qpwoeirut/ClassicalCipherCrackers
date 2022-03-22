@@ -11,9 +11,8 @@ from crackers.SubstitutionCracker import SubstitutionCracker
 class MonoSubstitutionCracker(ClimbingCracker, SubstitutionCracker):
     def __init__(self, cipher: Type[Cipher] = MonoSubstitutionCipher, alphabet=string.ascii_uppercase,
                  restart_threshold=200, iterations=5000):
-        super(ClimbingCracker).__init__(cipher, alphabet=alphabet)
-        super(MonoSubstitutionCracker, self).__init__(
-            cipher, restart_threshold=restart_threshold, iterations=iterations)
+        super(ClimbingCracker).__init__(alphabet=alphabet)
+        super(MonoSubstitutionCracker, self).__init__(restart_threshold=restart_threshold, iterations=iterations)
         self.cipher = cipher
 
     def decrypt(self, key, ciphertext: str) -> str:

@@ -7,8 +7,8 @@ from text_fitness.quadgram_score import quadgram_score
 
 
 class ClimbingCracker(Cracker):
-    def __init__(self, cipher: Type[Cipher], restart_threshold=100, iterations=5000):
-        super().__init__(cipher)
+    def __init__(self, restart_threshold=100, iterations=5000):
+        super().__init__()
         self.restart_threshold = restart_threshold
         self.iterations = iterations
 

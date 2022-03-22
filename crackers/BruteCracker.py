@@ -1,14 +1,11 @@
 import abc
-from typing import Type
-
-from ciphers.Cipher import Cipher
 from crackers.Cracker import Cracker
 from text_fitness.quadgram_score import quadgram_score
 
 
 class BruteCracker(Cracker):
-    def __init__(self, cipher: Type[Cipher]):
-        super().__init__(cipher)
+    def __init__(self):
+        super().__init__()
 
     @abc.abstractmethod
     def generate_keys(self):

@@ -8,7 +8,7 @@ from crackers.SubstitutionCracker import SubstitutionCracker
 
 class CaesarCracker(BruteCracker, SubstitutionCracker):
     def __init__(self, alphabet=string.ascii_uppercase):
-        super().__init__(CaesarCipher, alphabet)
+        super().__init__(alphabet)
 
     def decrypt(self, key, ciphertext: str) -> str:
         return CaesarCipher(key).decrypt(ciphertext)

@@ -1,6 +1,10 @@
 import random
 import time
+from typing import Type
 
+from ciphers.AutokeyCipher import AutokeyCipher
+from ciphers.Cipher import Cipher
+from ciphers.VigenereCipher import VigenereCipher
 from crackers.AutokeyCracker import AutokeyCracker
 from crackers.Cracker import Cracker
 from crackers.VigenereCracker import VigenereCracker
@@ -9,9 +13,10 @@ random.seed(0)  # seed to ensure easy reproducibility
 
 
 class CrackerTester:
-    def __init__(self, text: str, cracker: Cracker):
+    def __init__(self, text: str, cipher: Type[Cipher], cracker: Cracker):
+        self.cipher = cipher
         self.cracker = cracker
-        self.text = self.cracker.cipher("", alphabet=cracker.alphabet).filter_invalid(text.strip())
+        self.text = self.cipher("").filter_invalid(text.strip())
 
     def pick_random_excerpt(self):
         a = random.choice(range(len(self.text)))
@@ -24,7 +29,7 @@ class CrackerTester:
     def run_test(self, trials: int) -> float:
         plaintexts = [self.pick_random_excerpt() for _ in range(trials)]
         keys = [self.cracker.generate_random_key() for _ in range(trials)]
-        ciphertexts = [self.cracker.cipher(keys[i]).encrypt(plaintexts[i]) for i in range(trials)]
+        ciphertexts = [self.cipher(keys[i]).encrypt(plaintexts[i]) for i in range(trials)]
         print(plaintexts)
         print(keys)
         print(ciphertexts)
@@ -50,8 +55,8 @@ class CrackerTester:
 def main():
     with open("rabbitsign_faq.txt") as f:
         text = f.read().strip()
-    CrackerTester(text, AutokeyCracker(iterations=200)).run_test(5)
-    CrackerTester(text, VigenereCracker(iterations=300)).run_test(5)
+    CrackerTester(text, AutokeyCipher, AutokeyCracker(iterations=200)).run_test(5)
+    CrackerTester(text, VigenereCipher, VigenereCracker(iterations=300)).run_test(5)
 
 
 if __name__ == '__main__':

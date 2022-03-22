@@ -1,12 +1,9 @@
 import abc
-from typing import Type
-
-from ciphers.Cipher import Cipher
 
 
 class Cracker(metaclass=abc.ABCMeta):
-    def __init__(self, cipher: Type[Cipher]):
-        self.cipher = cipher
+    def __init__(self):
+        pass
 
     @abc.abstractmethod
     def generate_random_key(self):

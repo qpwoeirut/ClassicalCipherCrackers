@@ -1,18 +1,15 @@
 import abc
 import random
 import string
-from typing import Type
 
-from ciphers.Cipher import Cipher
 from crackers.ClimbingCracker import ClimbingCracker
 from crackers.SubstitutionCracker import SubstitutionCracker
 
 
 class ExtendableStringKeyCracker(ClimbingCracker, SubstitutionCracker, metaclass=abc.ABCMeta):
-    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase, restart_threshold=200, iterations=5000,
-                 max_key_len=15):
-        super(ClimbingCracker, self).__init__(cipher, alphabet=alphabet)
-        super().__init__(cipher, restart_threshold=restart_threshold, iterations=iterations)
+    def __init__(self, alphabet=string.ascii_uppercase, restart_threshold=200, iterations=5000, max_key_len=15):
+        super(ClimbingCracker, self).__init__(alphabet=alphabet)
+        super().__init__(restart_threshold=restart_threshold, iterations=iterations)
         self.max_key_len = max_key_len
 
     # TODO maybe make keys lists or tuples instead?
