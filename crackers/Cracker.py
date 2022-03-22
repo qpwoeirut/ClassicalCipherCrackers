@@ -20,3 +20,8 @@ class Cracker(metaclass=abc.ABCMeta):
         Returns a tuple with (key, plaintext)
         """
         raise NotImplementedError()
+
+    def crack_preserve_case(self, ciphertext: str):
+        is_lower = [c.islower() for c in ciphertext]
+        plaintext = self.crack(ciphertext.upper())
+        return ''.join([c.lower() if is_lower[i] else c for i, c in enumerate(plaintext)])
