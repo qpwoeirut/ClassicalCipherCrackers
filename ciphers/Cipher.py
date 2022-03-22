@@ -6,7 +6,9 @@ from sympy import ImmutableMatrix
 
 
 class Cipher(metaclass=abc.ABCMeta):
-    # the key parameter is unused, but having it makes each of the subclasses have a matching __init__ signature
+    """
+    Abstract base class for all Cipher classes
+    """
     def __init__(self, key: Union[str, int, Tuple[int, ...], ImmutableMatrix], alphabet: str = string.ascii_uppercase):
         self.key = key
         self.alphabet = alphabet

@@ -5,6 +5,11 @@ from ciphers.Cipher import Cipher
 
 
 class RailFenceCipher(Cipher):
+    """
+    Implementation of the rail fence cipher: https://en.wikipedia.org/wiki/Rail_fence_cipher
+    The key is a tuple with two integers (rails, offset), which are the number of rails and the starting offset
+    The number of rails must be at least 3 and the offset cannot be more than 2 * rails - 3
+    """
     def __init__(self, key: Tuple[int, int], alphabet: str = string.ascii_uppercase):
         self.rails, self.offset = key
         assert self.rails >= 3
@@ -31,11 +36,3 @@ class RailFenceCipher(Cipher):
         nums = list(range(len(ciphertext)))
         pos = self._fence(nums)
         return ''.join(ciphertext[pos.index(n)] for n in nums)
-
-
-if __name__ == "__main__":
-    cipher = RailFenceCipher((4, 3))
-    assert cipher.encrypt("abcdefghijklmnop") == "djpceikobfhlnagm"
-    assert cipher.decrypt("djpceikobfhlnagm") == "abcdefghijklmnop"
-    assert RailFenceCipher((3, 0)).encrypt("WEAREDISCOVEREDRUNATONCE") == "WECRUOERDSOEERNTNEAIVDAC"
-    assert RailFenceCipher((3, 0)).decrypt("WECRUOERDSOEERNTNEAIVDAC") == "WEAREDISCOVEREDRUNATONCE"

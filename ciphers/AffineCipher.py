@@ -1,11 +1,16 @@
 import string
 from math import gcd
+from typing import Tuple
 
 from ciphers.MonoSubstitutionCipher import MonoSubstitutionCipher
 
 
 class AffineCipher(MonoSubstitutionCipher):
-    def __init__(self, key: tuple, alphabet: str = string.ascii_uppercase):
+    """
+    Implementation of the Affine cipher: https://en.wikipedia.org/wiki/Affine_cipher
+    The key is a tuple with two integers (a, b), where a is coprime with the length of the alphabet
+    """
+    def __init__(self, key: Tuple[int, int], alphabet: str = string.ascii_uppercase):
         a, b = key
         if gcd(a, len(alphabet)) != 1:
             raise ValueError(f'"a" ({a}) must be coprime with the alphabet size ({len(alphabet)})')
@@ -16,18 +21,3 @@ class AffineCipher(MonoSubstitutionCipher):
             for c in alphabet
         ])
         super().__init__(transformed_alphabet=transformed_alphabet, alphabet=alphabet)
-
-
-def test():
-    # example from Wikipedia
-    cipher = AffineCipher((5, 8))
-    assert cipher.encrypt("AFFINECIPHER".lower()) == "IHHWVCSWFRCP".lower()
-    assert cipher.decrypt("IHHWVCSWFRCP".lower()) == "AFFINECIPHER".lower()
-
-
-def main():
-    test()
-
-
-if __name__ == '__main__':
-    main()

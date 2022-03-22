@@ -4,8 +4,12 @@ from typing import Tuple
 from ciphers.Cipher import Cipher
 
 
-# https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition
 class ColumnarTranspositionCipher(Cipher):
+    """
+    Implementation of the Columnar Transposition cipher: https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition
+    Works for both complete columnar and incomplete columnar
+    The key is a permutation starting from 0, representing the order the columns should be read off when encrypting
+    """
     def __init__(self, key: Tuple[int, ...], alphabet: str = string.ascii_uppercase):
         super().__init__(key, alphabet=alphabet)
         self.inv_key = [key.index(i) for i in range(len(key))]
@@ -26,20 +30,3 @@ class ColumnarTranspositionCipher(Cipher):
                 plaintext[r * len(self.key) + k] = ciphertext[i]
                 i += 1
         return ''.join(plaintext)
-
-
-def test():
-    # example from Wikipedia
-    cipher = ColumnarTranspositionCipher((5, 2, 1, 3, 0, 4))
-    assert cipher.encrypt("WEAREDISCOVEREDFLEEATONCEQKJEU".lower()) == "EVLNEACDTKESEAQROFOJDEECUWIREE".lower()
-    assert cipher.decrypt("EVLNEACDTKESEAQROFOJDEECUWIREE".lower()) == "WEAREDISCOVEREDFLEEATONCEQKJEU".lower()
-    assert cipher.encrypt("WEAREDISCOVEREDFLEEATONCE".lower()) == "EVLNACDTESEAROFODEECWIREE".lower()
-    assert cipher.decrypt("EVLNACDTESEAROFODEECWIREE".lower()) == "WEAREDISCOVEREDFLEEATONCE".lower()
-
-
-def main():
-    test()
-
-
-if __name__ == '__main__':
-    main()

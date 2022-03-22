@@ -4,6 +4,11 @@ from ciphers.Cipher import Cipher
 
 
 class MonoSubstitutionCipher(Cipher):
+    """
+    Implementation of a monoalphabetic substitution cipher: https://en.wikipedia.org/wiki/Substitution_cipher#Simple_substitution
+    The key is the alphabet after it's encrypted
+    This class serves as the base class for all monoalphabetic substitution ciphers, such as the Affine cipher
+    """
     def __init__(self, transformed_alphabet: str, alphabet: str = string.ascii_uppercase):
         super().__init__(transformed_alphabet, alphabet=alphabet)
 

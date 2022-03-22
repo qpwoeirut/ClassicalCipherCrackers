@@ -7,6 +7,11 @@ from ciphers.Cipher import Cipher
 
 
 class HillCipher(Cipher):
+    """
+    Implementation of the Hill cipher: https://en.wikipedia.org/wiki/Hill_cipher
+    The key can either be an ImmutableMatrix from sympy or a string whose length is a perfect square
+    The key must be (or represent, in the case of the string) an invertible matrix
+    """
     def __init__(self, key: ImmutableMatrix or str, alphabet: str = string.ascii_uppercase, safe_mode: bool = True):
         if isinstance(key, str):
             n = int(sqrt(len(key)))  # TODO replace with math.isqrt once PyPy gets to python3.8
@@ -41,7 +46,3 @@ class HillCipher(Cipher):
             self.multiply_block(ciphertext[i:i + self.key.rows], self.decryption_key)
             for i in range(0, len(ciphertext), self.key.rows)
         ])
-
-
-if __name__ == "__main__":
-    print(HillCipher("GYBNQKURP".upper()).encrypt("ACTCAT".upper()))  # POHFIN
