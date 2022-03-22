@@ -1,10 +1,10 @@
 import string
 from itertools import cycle
 
-from ciphers.Cipher import Cipher
+from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
-class BeaufortCipher(Cipher):
+class BeaufortCipher(SubstitutionCipher):
     """
     Implementation of the Beaufort cipher: https://en.wikipedia.org/wiki/Beaufort_cipher
     The key is a string

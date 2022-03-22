@@ -1,10 +1,10 @@
 import string
 from itertools import cycle
 
-from ciphers.Cipher import Cipher
+from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
-class VigenereCipher(Cipher):
+class VigenereCipher(SubstitutionCipher):
     """
     Implementation of the Vigenère cipher: https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
     The key is a string

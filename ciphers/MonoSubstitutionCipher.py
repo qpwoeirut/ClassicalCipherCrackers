@@ -1,9 +1,9 @@
 import string
 
-from ciphers.Cipher import Cipher
+from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
-class MonoSubstitutionCipher(Cipher):
+class MonoSubstitutionCipher(SubstitutionCipher):
     """
     Implementation of a monoalphabetic substitution cipher: https://en.wikipedia.org/wiki/Substitution_cipher#Simple_substitution
     The key is the alphabet after it's encrypted

@@ -5,12 +5,18 @@ from ciphers.Cipher import Cipher
 
 
 class Cracker(metaclass=abc.ABCMeta):
-    def __init__(self, cipher: Type[Cipher], alphabet: str):
+    def __init__(self, cipher: Type[Cipher]):
         self.cipher = cipher
-        self.alphabet = alphabet
 
     @abc.abstractmethod
     def generate_random_key(self):
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def decrypt(self, key, ciphertext: str) -> str:
+        """
+        Decrypts a ciphertext, given the key
+        """
         raise NotImplementedError()
 
     @abc.abstractmethod

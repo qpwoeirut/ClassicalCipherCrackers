@@ -1,5 +1,4 @@
 import abc
-import string
 from typing import Type
 
 from ciphers.Cipher import Cipher
@@ -8,8 +7,8 @@ from text_fitness.quadgram_score import quadgram_score
 
 
 class BruteCracker(Cracker):
-    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase):
-        super().__init__(cipher, alphabet)
+    def __init__(self, cipher: Type[Cipher]):
+        super().__init__(cipher)
 
     @abc.abstractmethod
     def generate_keys(self):
@@ -21,7 +20,7 @@ class BruteCracker(Cracker):
     def crack(self, ciphertext: str) -> tuple:
         solutions = []
         for key in self.generate_keys():
-            plaintext = self.cipher(key, self.alphabet).decrypt(ciphertext)
+            plaintext = self.decrypt(key, ciphertext)
             solutions.append((quadgram_score(plaintext), key, plaintext))
         solutions.sort(reverse=True)
         return solutions[0]

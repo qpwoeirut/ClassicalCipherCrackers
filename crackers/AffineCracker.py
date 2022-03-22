@@ -4,11 +4,15 @@ from math import gcd
 
 from ciphers.AffineCipher import AffineCipher
 from crackers.BruteCracker import BruteCracker
+from crackers.SubstitutionCracker import SubstitutionCracker
 
 
-class AffineCracker(BruteCracker):
+class AffineCracker(BruteCracker, SubstitutionCracker):
     def __init__(self, alphabet=string.ascii_uppercase):
         super().__init__(AffineCipher, alphabet)
+
+    def decrypt(self, key, ciphertext: str) -> str:
+        return AffineCipher(key).decrypt(ciphertext)
 
     def generate_random_key(self) -> tuple:
         a = random.randint(0, len(self.alphabet) - 1)
