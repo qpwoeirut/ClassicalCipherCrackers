@@ -4,9 +4,10 @@ from math import sqrt
 from sympy import Matrix, ImmutableMatrix
 
 from ciphers.Cipher import Cipher
+from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
-class HillCipher(Cipher):
+class HillCipher(SubstitutionCipher):
     """
     Implementation of the Hill cipher: https://en.wikipedia.org/wiki/Hill_cipher
     The key can either be an ImmutableMatrix from sympy or a string whose length is a perfect square

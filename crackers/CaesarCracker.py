@@ -3,11 +3,15 @@ import string
 
 from ciphers.CaesarCipher import CaesarCipher
 from crackers.BruteCracker import BruteCracker
+from crackers.SubstitutionCracker import SubstitutionCracker
 
 
-class CaesarCracker(BruteCracker):
+class CaesarCracker(BruteCracker, SubstitutionCracker):
     def __init__(self, alphabet=string.ascii_uppercase):
         super().__init__(CaesarCipher, alphabet)
+
+    def decrypt(self, key, ciphertext: str) -> str:
+        return CaesarCipher(key).decrypt(ciphertext)
 
     def generate_random_key(self):
         return random.randint(0, len(self.alphabet) - 1)

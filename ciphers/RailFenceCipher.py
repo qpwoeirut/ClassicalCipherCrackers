@@ -2,20 +2,21 @@ import string
 from typing import Tuple
 
 from ciphers.Cipher import Cipher
+from ciphers.TranspositionCipher import TranspositionCipher
 
 
-class RailFenceCipher(Cipher):
+class RailFenceCipher(TranspositionCipher):
     """
     Implementation of the rail fence cipher: https://en.wikipedia.org/wiki/Rail_fence_cipher
     The key is a tuple with two integers (rails, offset), which are the number of rails and the starting offset
     The number of rails must be at least 3 and the offset cannot be more than 2 * rails - 3
     """
-    def __init__(self, key: Tuple[int, int], alphabet: str = string.ascii_uppercase):
+    def __init__(self, key: Tuple[int, int]):
         self.rails, self.offset = key
         assert self.rails >= 3
         assert self.offset <= 2 * self.rails - 3
 
-        super().__init__(key, alphabet=alphabet)
+        super().__init__(key)
 
     def _fence(self, s: list or str) -> list:
         fence = [[None] * len(s) for _ in range(self.rails)]

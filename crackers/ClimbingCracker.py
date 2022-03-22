@@ -1,5 +1,4 @@
 import abc
-import string
 from typing import Type
 
 from ciphers.Cipher import Cipher
@@ -8,8 +7,8 @@ from text_fitness.quadgram_score import quadgram_score
 
 
 class ClimbingCracker(Cracker):
-    def __init__(self, cipher: Type[Cipher], alphabet=string.ascii_uppercase, restart_threshold=100, iterations=5000):
-        super().__init__(cipher, alphabet)
+    def __init__(self, cipher: Type[Cipher], restart_threshold=100, iterations=5000):
+        super().__init__(cipher)
         self.restart_threshold = restart_threshold
         self.iterations = iterations
 
@@ -28,16 +27,16 @@ class ClimbingCracker(Cracker):
                 print(f"Starting iteration {i}")
 
             current_key = self.generate_random_key()
-            current_score = quadgram_score(self.cipher(current_key, self.alphabet).decrypt(ciphertext))
+            current_score = quadgram_score(self.decrypt(current_key, ciphertext))
 
             failed_mutations = 0
             while failed_mutations < self.restart_threshold:
                 mutated_key = self.mutate_key(current_key)
-                mutated_plaintext = self.cipher(mutated_key, self.alphabet).decrypt(ciphertext)
+                mutated_plaintext = self.decrypt(mutated_key, ciphertext)
                 mutated_score = quadgram_score(mutated_plaintext)
 
                 if best_solution[0] < mutated_score:
-                    best_solution = (mutated_score, mutated_key, mutated_plaintext)  # TODO make sure this makes a copy
+                    best_solution = (mutated_score, mutated_key, mutated_plaintext)
                     print(best_solution)
                 if current_score < mutated_score:
                     current_score = mutated_score

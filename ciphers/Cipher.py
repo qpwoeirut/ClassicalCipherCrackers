@@ -1,5 +1,4 @@
 import abc
-import string
 from typing import Union, Tuple
 
 from sympy import ImmutableMatrix
@@ -9,15 +8,8 @@ class Cipher(metaclass=abc.ABCMeta):
     """
     Abstract base class for all Cipher classes
     """
-    def __init__(self, key: Union[str, int, Tuple[int, ...], ImmutableMatrix], alphabet: str = string.ascii_uppercase):
+    def __init__(self, key: Union[str, int, Tuple[int, ...], ImmutableMatrix]):
         self.key = key
-        self.alphabet = alphabet
-
-    def filter_invalid(self, text: str) -> str:
-        return ''.join([c.upper() for c in text if c.upper() in self.alphabet])
-
-    def valid_text(self, text: str) -> bool:
-        return len(self.filter_invalid(text)) == len(text)
 
     @abc.abstractmethod
     def encrypt(self, plaintext: str) -> str:
@@ -32,5 +24,13 @@ class Cipher(metaclass=abc.ABCMeta):
         """
         Decrypts ciphertext using the implemented cipher
         Ignores any characters not in self.alphabet
+        """
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def filter_invalid(self, text: str) -> str:
+        """
+        For substitution ciphers, removes any characters that are not in the alphabet
+        Does nothing for all other ciphers
         """
         raise NotImplementedError()

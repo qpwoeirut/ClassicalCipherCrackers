@@ -1,9 +1,9 @@
 import string
 
-from ciphers.Cipher import Cipher
+from ciphers.SubstitutionCipher import SubstitutionCipher
 
 
-class AutokeyCipher(Cipher):
+class AutokeyCipher(SubstitutionCipher):
     """
     Implementation of the Autokey cipher: https://en.wikipedia.org/wiki/Autokey_cipher
     The key is a string
