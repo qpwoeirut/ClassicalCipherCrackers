@@ -5,8 +5,9 @@ from ciphers.MyszkowskiTranspositionCipher import MyszkowskiTranspositionCipher
 from crackers.ClimbingCracker import ClimbingCracker
 
 
+# TODO this cracker is rather inefficient and needs either its mutation algorithm or climbing algorithm to be improved
 class MyszkowskiTranspositionCracker(ClimbingCracker):
-    def __init__(self, restart_threshold=500, iterations=1200, max_key_len=20):
+    def __init__(self, restart_threshold=800, iterations=1000, max_key_len=20):
         super().__init__(restart_threshold=restart_threshold, iterations=iterations)
         self.max_key_len = max_key_len
 
@@ -23,7 +24,9 @@ class MyszkowskiTranspositionCracker(ClimbingCracker):
     def mutate_key(self, key: List[int]) -> List[int]:
         random_index = random.randint(0 if len(key) == 1 else -1, len(key) + 1 - 2 * (len(key) == self.max_key_len))
         if random_index == -1:
-            return [k for k in key if k != len(key) - 1]  # shortens key
+            new_key = key.copy()
+            new_key.remove(max(key))
+            return new_key  # shortens key
         if random_index == len(key):  # extends key
             return key + [random.randint(0, len(key))]
 

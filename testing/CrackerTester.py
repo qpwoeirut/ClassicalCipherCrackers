@@ -57,10 +57,10 @@ class CrackerTester:
 def main():
     with open("rabbitsign_faq.txt") as f:
         text = f.read().strip()
-    CrackerTester(text, AutokeyCipher, AutokeyCracker()).run_test(3)
-    CrackerTester(text, VigenereCipher, VigenereCracker()).run_test(3)
-    CrackerTester(text, ColumnarTranspositionCipher, ColumnarTranspositionCracker()).run_test(3)
-    CrackerTester(text, MyszkowskiTranspositionCipher, MyszkowskiTranspositionCracker()).run_test(3)
+    # CrackerTester(text, AutokeyCipher, AutokeyCracker()).run_test(3)
+    # CrackerTester(text, VigenereCipher, VigenereCracker()).run_test(3)
+    # CrackerTester(text, ColumnarTranspositionCipher, ColumnarTranspositionCracker()).run_test(3)
+    CrackerTester(text, MyszkowskiTranspositionCipher, MyszkowskiTranspositionCracker()).run_test(10)
 
 
 if __name__ == '__main__':
