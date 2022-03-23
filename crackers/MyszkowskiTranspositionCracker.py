@@ -6,7 +6,7 @@ from crackers.ClimbingCracker import ClimbingCracker
 
 
 class MyszkowskiTranspositionCracker(ClimbingCracker):
-    def __init__(self, restart_threshold=400, iterations=1000, max_key_len=20):
+    def __init__(self, restart_threshold=500, iterations=1200, max_key_len=20):
         super().__init__(restart_threshold=restart_threshold, iterations=iterations)
         self.max_key_len = max_key_len
 
