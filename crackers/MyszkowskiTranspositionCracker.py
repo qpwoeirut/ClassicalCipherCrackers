@@ -14,7 +14,7 @@ class MyszkowskiTranspositionCracker(ClimbingCracker):
         return MyszkowskiTranspositionCipher(key).decrypt(ciphertext)
 
     def generate_random_key(self) -> List[int]:  # generates key of random length
-        key = random.choices([0, 1, 1], k=random.randint(1, self.max_key_len))
+        key = random.choices([0, 1, 1], k=random.randint(4, self.max_key_len))
         for i in range(1, len(key)):
             key[i] += key[i-1]
         random.shuffle(key)

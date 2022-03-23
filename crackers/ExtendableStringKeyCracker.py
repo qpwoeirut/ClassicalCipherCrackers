@@ -14,7 +14,7 @@ class ExtendableStringKeyCracker(ClimbingCracker, SubstitutionCracker, metaclass
 
     # TODO maybe make keys lists or tuples instead?
     def generate_random_key(self) -> str:  # generates key of random length
-        key_len = random.randint(1, self.max_key_len)
+        key_len = random.randint(4, self.max_key_len)
         return ''.join(random.choices(string.ascii_uppercase, k=key_len))
 
     def mutate_key(self, key: str) -> str:

@@ -14,7 +14,7 @@ class ColumnarTranspositionCracker(ClimbingCracker):
         return ColumnarTranspositionCipher(key).decrypt(ciphertext)
 
     def generate_random_key(self) -> List[int]:  # generates key of random length
-        permutation = list(range(random.randint(1, self.max_key_len)))
+        permutation = list(range(random.randint(4, self.max_key_len)))
         random.shuffle(permutation)
         return permutation
 
