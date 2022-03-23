@@ -10,10 +10,10 @@
 * Hill
 * Railfence
 * Columnar transposition (both complete and incomplete)
+* Myszkowski transposition
 
 ## TODO (from Wikipedia's Classical Ciphers list and CryptoPrograms)
 * Double columnar transposition
-* Myszkowski
 * Playfair
 * ADFGVX
 * Bifid, Trifid

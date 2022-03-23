@@ -5,7 +5,7 @@ from ciphers.TranspositionCipher import TranspositionCipher
 
 class ColumnarTranspositionCipher(TranspositionCipher):
     """
-    Implementation of the Columnar Transposition cipher: https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition
+    Implementation of the Columnar transposition cipher: https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition
     Works for both complete columnar and incomplete columnar
     The key is a permutation starting from 0, representing the order the columns should be read off when encrypting
     """

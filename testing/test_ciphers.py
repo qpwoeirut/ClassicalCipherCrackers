@@ -5,13 +5,14 @@ from ciphers.Cipher import Cipher
 from ciphers.ColumnarTranspositionCipher import ColumnarTranspositionCipher
 from ciphers.HillCipher import HillCipher
 from ciphers.MonoSubstitutionCipher import MonoSubstitutionCipher
+from ciphers.MyszkowskiTranspositionCipher import MyszkowskiTranspositionCipher
 from ciphers.RailFenceCipher import RailFenceCipher
 from ciphers.VigenereCipher import VigenereCipher
 
 
 def test_cipher(cipher: Cipher, plaintext: str, ciphertext: str):
-    assert cipher.encrypt(plaintext) == ciphertext
-    assert cipher.decrypt(ciphertext) == plaintext
+    assert cipher.encrypt(plaintext) == ciphertext, cipher.encrypt(plaintext)
+    assert cipher.decrypt(ciphertext) == plaintext, cipher.decrypt(ciphertext)
 
 
 def run_tests():
@@ -27,6 +28,8 @@ def run_tests():
     columnar_transposition_cipher = ColumnarTranspositionCipher((5, 2, 1, 3, 0, 4))
     test_cipher(columnar_transposition_cipher, "WEAREDISCOVEREDFLEEATONCEQKJEU", "EVLNEACDTKESEAQROFOJDEECUWIREE")
     test_cipher(columnar_transposition_cipher, "WEAREDISCOVEREDFLEEATONCE", "EVLNACDTESEAROFODEECWIREE")
+
+    test_cipher(MyszkowskiTranspositionCipher("TOMATO"), "WEAREDISCOVEREDFLEEATONCE", "ROFOACDTEDSEEEACWEIVRLENE")
 
     test_cipher(HillCipher("GYBNQKURP"), "ACTCAT", "POHFIN")
 
