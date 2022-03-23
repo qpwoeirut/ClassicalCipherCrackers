@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, List
 
 from ciphers.TranspositionCipher import TranspositionCipher
 
@@ -9,7 +9,7 @@ class ColumnarTranspositionCipher(TranspositionCipher):
     Works for both complete columnar and incomplete columnar
     The key is a permutation starting from 0, representing the order the columns should be read off when encrypting
     """
-    def __init__(self, key: Tuple[int, ...]):
+    def __init__(self, key: Tuple[int, ...] or List[int, ...]):
         super().__init__(key)
         self.inv_key = [key.index(i) for i in range(len(key))]
 

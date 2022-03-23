@@ -18,7 +18,8 @@ class ExtendableStringKeyCracker(ClimbingCracker, SubstitutionCracker, metaclass
         return ''.join(random.choices(string.ascii_uppercase, k=key_len))
 
     def mutate_key(self, key: str) -> str:
-        random_index = random.randint(-(len(key) > 1), len(key))
-        if random_index == -1:
+        random_index = random.randint(0 if len(key) == 1 else -1, len(key) - (len(key) == self.max_key_len))
+        if random_index == -1:  # remove last character
             return key[:-1]
+        # either replaces a character (if random_index < len(key)) or adds one to the end (if random_index == len(key))
         return key[:random_index] + random.choice(string.ascii_uppercase) + key[random_index + 1:]
