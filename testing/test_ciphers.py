@@ -9,6 +9,7 @@ from ciphers.MyszkowskiTranspositionCipher import MyszkowskiTranspositionCipher
 from ciphers.PlayfairCipher import PlayfairCipher
 from ciphers.RailFenceCipher import RailFenceCipher
 from ciphers.VigenereCipher import VigenereCipher
+from crackers.PlayfairCracker import PlayfairCracker
 from util import ALPHABET_IJ_MERGED
 
 
@@ -40,8 +41,12 @@ def run_tests():
     test_cipher(monoalphabetic_substitution_cipher,
                 "flee at once. we are discovered!".upper(), "SIAA ZQ LKBA. VA ZOA RFPBLUAOAR!")
 
-    test_cipher(PlayfairCipher("PLAYFIREXMBCDGHKNOQSTUVWZ", alphabet=ALPHABET_IJ_MERGED),
-                "HIDETHEGOLDINTHETREXESTUMP", "BMODZBXDNABEKUDMUIXMMOUVIF")
+    plaintext = PlayfairCipher(
+                    PlayfairCracker(alphabet=ALPHABET_IJ_MERGED).generate_random_key(), alphabet=ALPHABET_IJ_MERGED
+                ).filter_invalid("HIDETHEGOLDINTHETREESTUMP")
+    test_cipher(
+        PlayfairCipher("PLAYFIREXMBCDGHKNOQSTUVWZ", alphabet=ALPHABET_IJ_MERGED),plaintext, "BMODZBXDNABEKUDMUIXMMOUVIF"
+    )
 
     test_cipher(RailFenceCipher((4, 3)), "abcdefghijklmnop", "djpceikobfhlnagm")
     test_cipher(RailFenceCipher((3, 0)), "WEAREDISCOVEREDRUNATONCE", "WECRUOERDSOEERNTNEAIVDAC")

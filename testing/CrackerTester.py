@@ -23,7 +23,7 @@ class CrackerTester:
     def __init__(self, text: str, cipher_creator: Callable[[str], Cipher], cracker: Cracker):
         self.cipher_creator = cipher_creator
         self.cracker = cracker
-        self.text = ''.join([x for x in cipher_creator("").filter_invalid(text)])
+        self.text = text
 
     def pick_random_excerpt(self):
         a = random.choice(range(len(self.text)))
@@ -31,7 +31,10 @@ class CrackerTester:
         while a == b:
             b = random.choice(range(len(self.text)))
 
-        return self.text[min(a, b):max(a, b)].strip().upper()
+        return ''.join([
+            x for x in self.cipher_creator(self.cracker.generate_random_key()).filter_invalid(
+                self.text[min(a, b):max(a, b)].strip().upper())
+        ])
 
     def run_test(self, trials: int) -> float:
         plaintexts = [self.pick_random_excerpt() for _ in range(trials)]
@@ -59,10 +62,10 @@ class CrackerTester:
 def main():
     with open("rabbitsign_faq.txt") as f:
         text = f.read().strip()
-    CrackerTester(text, AutokeyCipher, AutokeyCracker()).run_test(3)
-    CrackerTester(text, VigenereCipher, VigenereCracker()).run_test(3)
-    CrackerTester(text, ColumnarTranspositionCipher, ColumnarTranspositionCracker()).run_test(3)
-    CrackerTester(text, MyszkowskiTranspositionCipher, MyszkowskiTranspositionCracker()).run_test(10)
+    # CrackerTester(text, AutokeyCipher, AutokeyCracker()).run_test(3)
+    # CrackerTester(text, VigenereCipher, VigenereCracker()).run_test(3)
+    # CrackerTester(text, ColumnarTranspositionCipher, ColumnarTranspositionCracker()).run_test(3)
+    # CrackerTester(text, MyszkowskiTranspositionCipher, MyszkowskiTranspositionCracker()).run_test(10)
     CrackerTester(text, lambda key: PlayfairCipher(key, ALPHABET_IJ_MERGED), PlayfairCracker(ALPHABET_IJ_MERGED)).run_test(3)
 
 

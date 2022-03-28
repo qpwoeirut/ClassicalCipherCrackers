@@ -10,12 +10,14 @@ class PlayfairCipher(SubstitutionCipher):
     Alphabet is a required parameter since the default ascii_uppercase doesn't work
     """
 
-    def __init__(self, key: str, alphabet: str):
+    def __init__(self, key: str, alphabet: str, filler_char: str = "X"):
         size = int(sqrt(len(key)))
         assert size ** 2 == len(key), "Key must be a square"
         assert set(key) == set(alphabet), "Every character in the alphabet must be in the key exactly once"
 
         super().__init__(key, alphabet=alphabet)
+
+        self.filler_char = filler_char
 
         self.table = dict()
         for r0 in range(size):
@@ -55,10 +57,30 @@ class PlayfairCipher(SubstitutionCipher):
 
         self.inv_table = {v: k for k, v in self.table.items()}
 
+    def filter_invalid(self, text: str) -> str:
+        text = super().filter_invalid(text)
+
+        i = 0
+        out = ""
+        while i < len(text):
+            if i+1 == len(text):
+                out += text[i] + self.filler_char
+                i += 1
+            elif text[i] == text[i + 1]:
+                out += text[i] + self.filler_char
+                i += 1
+            else:
+                out += text[i: i + 2]
+                i += 2
+        return out
+
     # assumes there are no repeat letters; an X or Q is usually placed between repeat letters
     def encrypt(self, plaintext: str) -> str:
         assert len(plaintext) % 2 == 0
-        return ''.join([self.table[plaintext[i:i + 2]] for i in range(0, len(plaintext), 2)])
+        bigram_blocks = [plaintext[i:i + 2] for i in range(0, len(plaintext), 2)]
+        assert all([block[0] != block[1] for block in bigram_blocks])
+
+        return ''.join([self.table[block] for block in bigram_blocks])
 
     def decrypt(self, ciphertext: str) -> str:
         assert len(ciphertext) % 2 == 0
