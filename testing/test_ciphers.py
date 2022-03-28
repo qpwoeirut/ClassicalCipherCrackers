@@ -6,8 +6,10 @@ from ciphers.ColumnarTranspositionCipher import ColumnarTranspositionCipher
 from ciphers.HillCipher import HillCipher
 from ciphers.MonoSubstitutionCipher import MonoSubstitutionCipher
 from ciphers.MyszkowskiTranspositionCipher import MyszkowskiTranspositionCipher
+from ciphers.PlayfairCipher import PlayfairCipher
 from ciphers.RailFenceCipher import RailFenceCipher
 from ciphers.VigenereCipher import VigenereCipher
+from util import ALPHABET_IJ_MERGED
 
 
 def test_cipher(cipher: Cipher, plaintext: str, ciphertext: str):
@@ -37,6 +39,9 @@ def run_tests():
     test_cipher(monoalphabetic_substitution_cipher, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "ZEBRASCDFGHIJKLMNOPQTUVWXY")
     test_cipher(monoalphabetic_substitution_cipher,
                 "flee at once. we are discovered!".upper(), "SIAA ZQ LKBA. VA ZOA RFPBLUAOAR!")
+
+    test_cipher(PlayfairCipher("PLAYFIREXMBCDGHKNOQSTUVWZ", alphabet=ALPHABET_IJ_MERGED),
+                "HIDETHEGOLDINTHETREXESTUMP", "BMODZBXDNABEKUDMUIXMMOUVIF")
 
     test_cipher(RailFenceCipher((4, 3)), "abcdefghijklmnop", "djpceikobfhlnagm")
     test_cipher(RailFenceCipher((3, 0)), "WEAREDISCOVEREDRUNATONCE", "WECRUOERDSOEERNTNEAIVDAC")
