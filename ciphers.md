@@ -11,10 +11,10 @@
 * Railfence
 * Columnar transposition (both complete and incomplete)
 * Myszkowski transposition
+* Playfair
 
 ## TODO (from Wikipedia's Classical Ciphers list and CryptoPrograms)
 * Double columnar transposition
-* Playfair
 * ADFGVX
 * Bifid, Trifid
 * Nihilist Sub
