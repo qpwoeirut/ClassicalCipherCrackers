@@ -4,7 +4,8 @@ A (hopefully) considerably copious collection of classical cipher crackers
 Written in Python3 (and run with PyPy)
 
 ## TODOs
-* Compile a list of common classical ciphers (drawing from Wikipedia and the National Cipher Competition)
+* Investigate using `__slots__` for time/memory optimization
+* Add methods to the cipher objects so that keys can be more quickly mutated
 * Write a word splitter which separates plaintext into words
 * Investigate using AI to identify what cipher a ciphertext might be encrypted with
 * Investigate training a simple AI-like model which can evaluate the english-ness of text
