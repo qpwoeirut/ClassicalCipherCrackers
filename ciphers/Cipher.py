@@ -8,6 +8,8 @@ class Cipher(metaclass=abc.ABCMeta):
     """
     Abstract base class for all Cipher classes
     """
+    __slots__ = "key"
+
     def __init__(self, key: Union[str, int, Tuple[int, ...], ImmutableMatrix]):
         self.key = key
 
